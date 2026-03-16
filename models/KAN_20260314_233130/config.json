@@ -1,0 +1,63 @@
+{
+  "task": {
+    "inputs": [
+      "I",
+      "SoC",
+      "T"
+    ],
+    "output": "V"
+  },
+  "norm": {
+    "V_min": 2.636099934577942,
+    "V_max": 4.686899781227112,
+    "I_abs_max": 5.526000022888184,
+    "T_min": 14.349410438537598,
+    "T_max": 49.52249011993408,
+    "headroom": 0.2
+  },
+  "ocv_polynomial": {
+    "degree": 5,
+    "coefs_high_to_low": [
+      -11.66265948752499,
+      12.154540678388376,
+      3.0098422215754863,
+      -6.035489142972655,
+      2.1551267080262777,
+      3.532054826372431
+    ]
+  },
+  "hp": {
+    "inputs": [
+      "I",
+      "SoC",
+      "T"
+    ],
+    "output": "V",
+    "hidden": 16,
+    "grid_size": 10,
+    "spline_order": 3,
+    "lr": 0.001,
+    "batch_size": 128,
+    "n_epochs": 500,
+    "lr_patience": 30,
+    "lr_factor": 0.5,
+    "lr_min": 1e-06,
+    "es_patience": 80,
+    "headroom": 0.2,
+    "val_split": 0.1
+  },
+  "best_epoch": 6,
+  "metrics": {
+    "rmse_mV": 115.4206314086914,
+    "mae_mV": 86.7477035522461,
+    "r2": 0.8523638248443604
+  },
+  "train_files": [
+    "RW9",
+    "RW10"
+  ],
+  "test_files": [
+    "RW11"
+  ],
+  "timestamp": "20260314_233130"
+}

@@ -1,0 +1,45 @@
+[14:53:39] KAN ESS training  --  task: [I, SoC, T, dI] -> V
+[14:53:39] Train files : ['RW9', 'RW10', 'RW11']
+[14:53:39] Test  files : ['RW12']
+[14:53:39] Output dir  : models\KAN_20260315_145339
+[14:53:39] 
+[14:53:39] Loading preprocessed datasets...
+[14:53:39]   RW9.mat: 771,089 samples, Cn=2.101 Ah, Ts=10.0 s
+[14:53:39]   RW10.mat: 778,307 samples, Cn=2.098 Ah, Ts=10.0 s
+[14:53:39]   RW11.mat: 783,947 samples, Cn=2.097 Ah, Ts=10.0 s
+[14:53:39]   RW12.mat: 773,719 samples, Cn=2.097 Ah, Ts=10.0 s
+[14:53:39] 
+Norm params: {"V_min": 2.5241, "V_max": 4.8149, "I_abs_max": 5.526, "T_min": 14.3494, "T_max": 49.5225, "headroom": 0.2}
+[14:53:39] 
+Fitting OCV polynomial (degree-5)...
+[14:53:39]   OCV coefs (high->low): [-11.12109, 11.93026, 3.01392, -6.31009, 2.28674, 3.52245]
+[14:53:39] 
+Train samples: 2,100,009  |  Val samples: 233,334
+[14:53:39] 
+Device: cpu
+[14:53:39] HP: {"inputs": ["I", "SoC", "T", "dI"], "output": "V", "hidden": 16, "grid_size": 10, "spline_order": 3, "lr": 0.0003, "weight_decay": 0.0001, "batch_size": 256, "n_epochs": 500, "lr_patience": 30, "lr_factor": 0.5, "lr_min": 1e-06, "es_patience": 80, "headroom": 0.2, "val_split": 0.1}
+[14:53:40] 
+ Epoch     Train MSE       Val MSE          LR
+[14:53:40] ------------------------------------------------
+[14:54:16]      1      0.005449      0.002410    3.00e-04
+[15:06:02]     20      0.001337      0.002580    3.00e-04
+[15:18:31]     40      0.001335      0.002496    1.50e-04
+[15:30:55]     60      0.001335      0.002543    1.50e-04
+[15:43:14]     80      0.001334      0.002590    7.50e-05
+[15:43:50] 
+Early stopping at epoch 81 (no improvement for 80 epochs)
+[15:43:50] 
+Training done in 3010.0 s.  Best epoch: 1  Best val MSE: 0.002410
+[15:43:50] 
+--- Test Evaluation ---
+[15:43:52]   RW12.mat: RMSE=82.37 mV  MAE=62.36 mV  R2=0.9270
+[15:43:52] 
+  OVERALL: RMSE=82.37 mV  MAE=62.36 mV  R2=0.9270
+[15:43:52] 
+Exporting B-spline coefficients...
+[15:43:52]   PyTorch vs NumPy spline max diff: 1.19e-07  (should be <1e-5)
+[15:43:52]   Saved: models\KAN_20260315_145339\splines_kan.json
+[15:43:52] 
+Generating plots...
+[15:43:53] 
+All outputs saved to: models\KAN_20260315_145339

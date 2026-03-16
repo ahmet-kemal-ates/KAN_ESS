@@ -1,0 +1,47 @@
+KAN SoC Estimator — Training Log
+Timestamp   : 2026-03-14_16-27-59
+Output dir  : C:\Users\Asus\Desktop\Ahmet\VScodeFiles\KAN_ESS\KAN_ESS\models\KAN_2026-03-14_16-27-59
+Device      : cpu
+Seed        : 42
+
+Training files:
+  RW9.mat  N=771,089  Cn=2.101 Ah
+
+Test files:
+  RW11.mat  N=783,947
+
+Architecture: KAN([3, 4, 1])
+  grid_size    = 5
+  spline_order = 3
+  n_params     = 160
+
+Hyperparameters:
+  hidden                         = 4
+  grid_size                      = 5
+  spline_order                   = 3
+  lr                             = 0.001
+  batch_size                     = 256
+  n_epochs                       = 500
+  lr_patience                    = 30
+  lr_factor                      = 0.5
+  lr_min                         = 1e-06
+  es_patience                    = 80
+  lut_n_V                        = 20
+  lut_n_I                        = 21
+  lut_n_Q                        = 20
+  headroom                       = 0.2
+
+Normalisation:
+  V     : [2.637300, 4.673700]
+  I     : ±5.523600
+  Q     : ±1.241606
+
+Training time : 3928.29 s
+Epochs run    : 500
+Best MSE loss : 0.01031858
+Train MSE     : 0.01031839
+
+Test metrics:
+  File                     RMSE%      MAE%        R2
+  --------------------------------------------------
+  RW11.mat               10.2289    8.2521  0.258619

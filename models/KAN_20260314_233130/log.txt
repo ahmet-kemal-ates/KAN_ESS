@@ -1,0 +1,44 @@
+[23:31:30] KAN ESS training  --  task: [I, SoC, T] -> V
+[23:31:30] Train files : ['RW9', 'RW10']
+[23:31:30] Test  files : ['RW11']
+[23:31:30] Output dir  : models\KAN_20260314_233130
+[23:31:30] 
+[23:31:30] Loading preprocessed datasets...
+[23:31:30]   RW9.mat: 771,089 samples, Cn=2.101 Ah, Ts=10.0 s
+[23:31:30]   RW10.mat: 778,307 samples, Cn=2.098 Ah, Ts=10.0 s
+[23:31:30]   RW11.mat: 783,947 samples, Cn=2.097 Ah, Ts=10.0 s
+[23:31:30] 
+Norm params: {"V_min": 2.6361, "V_max": 4.6869, "I_abs_max": 5.526, "T_min": 14.3494, "T_max": 49.5225, "headroom": 0.2}
+[23:31:30] 
+Fitting OCV polynomial (degree-5)...
+[23:31:30]   OCV coefs (high->low): [-11.66266, 12.15454, 3.00984, -6.03549, 2.15513, 3.53205]
+[23:31:30] 
+Train samples: 1,394,457  |  Val samples: 154,939
+[23:31:30] 
+Device: cpu
+[23:31:30] HP: {"inputs": ["I", "SoC", "T"], "output": "V", "hidden": 16, "grid_size": 10, "spline_order": 3, "lr": 0.001, "batch_size": 128, "n_epochs": 500, "lr_patience": 30, "lr_factor": 0.5, "lr_min": 1e-06, "es_patience": 80, "headroom": 0.2, "val_split": 0.1}
+[23:31:31] 
+ Epoch     Train MSE       Val MSE          LR
+[23:31:31] ------------------------------------------------
+[23:31:57]      1      0.002837      0.002322    1.00e-03
+[23:40:16]     20      0.001676      0.002605    1.00e-03
+[23:49:03]     40      0.001663      0.002426    5.00e-04
+[23:57:48]     60      0.001661      0.002540    5.00e-04
+[00:06:33]     80      0.001656      0.002524    2.50e-04
+[00:09:10] 
+Early stopping at epoch 86 (no improvement for 80 epochs)
+[00:09:10] 
+Training done in 2258.9 s.  Best epoch: 6  Best val MSE: 0.002223
+[00:09:10] 
+--- Test Evaluation ---
+[00:09:12]   RW11.mat: RMSE=115.42 mV  MAE=86.75 mV  R2=0.8524
+[00:09:12] 
+  OVERALL: RMSE=115.42 mV  MAE=86.75 mV  R2=0.8524
+[00:09:12] 
+Exporting B-spline coefficients...
+[00:09:12]   PyTorch vs NumPy spline max diff: 1.79e-07  (should be <1e-5)
+[00:09:12]   Saved: models\KAN_20260314_233130\splines_kan.json
+[00:09:12] 
+Generating plots...
+[00:09:20] 
+All outputs saved to: models\KAN_20260314_233130

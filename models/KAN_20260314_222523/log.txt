@@ -1,0 +1,23 @@
+[22:25:23] KAN ESS training  --  task: [I, SoC, T] -> V
+[22:25:23] Train files : ['RW9']
+[22:25:23] Test  files : ['RW11']
+[22:25:23] Output dir  : models\KAN_20260314_222523
+[22:25:23] 
+[22:25:23] Loading preprocessed datasets...
+[22:25:23]   RW9.mat: 771,089 samples, Cn=2.101 Ah, Ts=10.0 s
+[22:25:23]   RW11.mat: 783,947 samples, Cn=2.097 Ah, Ts=10.0 s
+[22:25:23] 
+Norm params: {"V_min": 2.6373, "V_max": 4.6737, "I_abs_max": 5.5236, "T_min": 14.3494, "T_max": 49.5225, "headroom": 0.2}
+[22:25:23] 
+Fitting OCV polynomial (degree-5)...
+[22:25:23]   OCV coefs (high->low): [-11.45589, 11.84665, 2.97979, -5.75743, 2.0506, 3.53699]
+[22:25:23] 
+Train samples: 693,981  |  Val samples: 77,108
+[22:25:23] 
+Device: cpu
+[22:25:23] HP: {"inputs": ["I", "SoC", "T"], "output": "V", "hidden": 8, "grid_size": 5, "spline_order": 3, "lr": 0.001, "batch_size": 128, "n_epochs": 500, "lr_patience": 30, "lr_factor": 0.5, "lr_min": 1e-06, "es_patience": 80, "headroom": 0.2, "val_split": 0.1}
+[22:25:24] 
+ Epoch     Train MSE       Val MSE          LR
+[22:25:24] ------------------------------------------------
+[22:25:33]      1      0.005541      0.003535    1.00e-03
+[22:28:37]     20      0.001791      0.003128    1.00e-03

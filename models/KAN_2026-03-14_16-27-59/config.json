@@ -1,0 +1,68 @@
+{
+  "architecture": {
+    "inputs": [
+      "V_norm",
+      "I_norm",
+      "Q_norm"
+    ],
+    "hidden": 4,
+    "grid_size": 5,
+    "spline_order": 3,
+    "output": "SoC",
+    "n_params": 160
+  },
+  "hyperparameters": {
+    "hidden": 4,
+    "grid_size": 5,
+    "spline_order": 3,
+    "lr": 0.001,
+    "batch_size": 256,
+    "n_epochs": 500,
+    "lr_patience": 30,
+    "lr_factor": 0.5,
+    "lr_min": 1e-06,
+    "es_patience": 80,
+    "lut_n_V": 20,
+    "lut_n_I": 21,
+    "lut_n_Q": 20,
+    "headroom": 0.2
+  },
+  "normalisation": {
+    "V_min": 2.63729989528656,
+    "V_max": 4.673700213432312,
+    "I_abs_max": 5.5236001968383786,
+    "Q_abs_max": 1.2416062831878663,
+    "headroom": 0.2
+  },
+  "ocv_polynomial": {
+    "degree": 5,
+    "coefs_high_to_low": [
+      -11.455894712858061,
+      11.84665125007877,
+      2.979793292498904,
+      -5.757431996743345,
+      2.050596133092709,
+      3.5369930303119466
+    ],
+    "usage": "V_ocv = np.polyval(coefs, SoC)"
+  },
+  "training": {
+    "seed": 42,
+    "device": "cpu",
+    "epochs_run": 500,
+    "best_loss": 0.010318576114916884,
+    "training_time_s": 3928.2884035110474,
+    "train_files": [
+      "RW9.mat"
+    ],
+    "test_files": [
+      "RW11.mat"
+    ]
+  },
+  "lut": {
+    "n_V": 20,
+    "n_I": 21,
+    "n_Q": 20,
+    "file": "lut_kan.json"
+  }
+}

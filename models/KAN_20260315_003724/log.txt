@@ -1,0 +1,47 @@
+[00:37:24] KAN ESS training  --  task: [I, SoC, T, dI] -> V
+[00:37:24] Train files : ['RW9', 'RW10']
+[00:37:24] Test  files : ['RW11']
+[00:37:24] Output dir  : models\KAN_20260315_003724
+[00:37:24] 
+[00:37:24] Loading preprocessed datasets...
+[00:37:24]   RW9.mat: 771,089 samples, Cn=2.101 Ah, Ts=10.0 s
+[00:37:24]   RW10.mat: 778,307 samples, Cn=2.098 Ah, Ts=10.0 s
+[00:37:24]   RW11.mat: 783,947 samples, Cn=2.097 Ah, Ts=10.0 s
+[00:37:24] 
+Norm params: {"V_min": 2.6361, "V_max": 4.6869, "I_abs_max": 5.526, "T_min": 14.3494, "T_max": 49.5225, "headroom": 0.2}
+[00:37:24] 
+Fitting OCV polynomial (degree-5)...
+[00:37:24]   OCV coefs (high->low): [-11.66266, 12.15454, 3.00984, -6.03549, 2.15513, 3.53205]
+[00:37:25] 
+Train samples: 1,394,457  |  Val samples: 154,939
+[00:37:25] 
+Device: cpu
+[00:37:25] HP: {"inputs": ["I", "SoC", "T", "dI"], "output": "V", "hidden": 16, "grid_size": 10, "spline_order": 3, "lr": 0.0003, "weight_decay": 0.0001, "batch_size": 128, "n_epochs": 500, "lr_patience": 30, "lr_factor": 0.5, "lr_min": 1e-06, "es_patience": 80, "headroom": 0.2, "val_split": 0.1}
+[00:37:25] 
+ Epoch     Train MSE       Val MSE          LR
+[00:37:25] ------------------------------------------------
+[00:37:57]      1      0.006204      0.002302    3.00e-04
+[00:48:24]     20      0.001634      0.002200    3.00e-04
+[00:58:57]     40      0.001634      0.002260    3.00e-04
+[01:09:31]     60      0.001632      0.002258    1.50e-04
+[01:19:59]     80      0.001632      0.002239    1.50e-04
+[01:30:28]    100      0.001631      0.002248    7.50e-05
+[01:40:59]    120      0.001630      0.002202    7.50e-05
+[01:51:28]    140      0.001629      0.002219    3.75e-05
+[01:56:11] 
+Early stopping at epoch 149 (no improvement for 80 epochs)
+[01:56:11] 
+Training done in 4726.1 s.  Best epoch: 69  Best val MSE: 0.002145
+[01:56:11] 
+--- Test Evaluation ---
+[01:56:13]   RW11.mat: RMSE=114.55 mV  MAE=89.42 mV  R2=0.8546
+[01:56:13] 
+  OVERALL: RMSE=114.55 mV  MAE=89.42 mV  R2=0.8546
+[01:56:13] 
+Exporting B-spline coefficients...
+[01:56:13]   PyTorch vs NumPy spline max diff: 1.19e-07  (should be <1e-5)
+[01:56:13]   Saved: models\KAN_20260315_003724\splines_kan.json
+[01:56:13] 
+Generating plots...
+[01:56:21] 
+All outputs saved to: models\KAN_20260315_003724
