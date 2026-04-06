@@ -238,5 +238,4 @@ Runtime inference (`ESS_kan.py`) requires **numpy only**.
 - Z. Liu et al., "KAN: Kolmogorov-Arnold Networks," arXiv:2404.19756, 2024.
 - M. H. Sulaiman et al., "Battery state of charge estimation for electric vehicle using Kolmogorov-Arnold networks," *Energy* 311 (2024) 133417. DOI: 10.1016/j.energy.2024.133417
 - NASA PCoE, Randomized Battery Usage Dataset. https://data.nasa.gov/dataset/randomized-battery-usage-1-random-walk
- 
- 
+<!-- KAN ESS model for REC HEMS -->
